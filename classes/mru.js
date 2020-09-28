@@ -9,11 +9,11 @@ const Mru = {};
 //To know position x = x0 + v * t
 let case1 = (x0, v, t) => {
     return {
-        x : x0 + v * t,
-        x0 : x0,
-        d : (( x0 + v * t) - x0),
-        v : v,
-        t : t
+        x : +(x0 + v * t),
+        x0 : +x0,
+        d : +(( x0 + v * t) - x0),
+        v : +v,
+        t : +t
     };
 };
 
@@ -22,11 +22,11 @@ let case1 = (x0, v, t) => {
 //  x0 = x - v * t
 let case2 = (x, v, t) => {
     return {
-        x0 : x - v * t,
-        x : x,
-        d : (x - (x - v * t)),
-        v : v,
-        t : t
+        x0 : +(x - v * t),
+        x : +x,
+        d : +(x - (x - v * t)),
+        v : +v,
+        t : +t
     };
 };
 
@@ -36,19 +36,19 @@ let case2 = (x, v, t) => {
 //  v = (x - x0) / t
 let case3 = (x, x0, t) => {
     return {
-        v : (x - x0) / t,
-        d : (x - x0),
-        x : x,
-        x0 : x0,
-        t : t
+        v : +((x - x0) / t),
+        d : +(x - x0),
+        x : +x,
+        x0 : +x0,
+        t : +t
     }; 
 };
 
 let case3_2 = (d, t) => {
     return {
-        v : d / t,
-        d : d,
-        t : t
+        v : +(d / t),
+        d : +d,
+        t : +t
     }; 
 };
 
@@ -57,19 +57,19 @@ let case3_2 = (d, t) => {
 //  (x - x0) / v = t
 let case4 = (x, x0, v) => {
     return  {
-        t : (x - x0) / v,
-        d : (x - x0),
-        x : x,
-        x0 : x0,
-        v : v
+        t : +((x - x0) / v),
+        d : +(x - x0),
+        x : +x,
+        x0 : +x0,
+        v : +v
     }; 
 };
 
 let case4_2 = (d, v) => {
     return {
-        t : d / v,
-        d : d,
-        v : v
+        t : +(d / v),
+        d : +d,
+        v : +v
     };
 };
 

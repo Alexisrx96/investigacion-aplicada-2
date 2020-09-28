@@ -54,7 +54,7 @@ routes.get('/mru', (req, res) => {
     let t = req.query.t;
     let d = req.query.d;
     let option = req.query.option === null ? "error" : req.query.option;
-    let answer = mru.calculate(option,v,t,x,x0,d);
+    let answer = mru.calculate(option,+v,+t,+x,+x0,+d);
     res.json(answer);
 });
 
