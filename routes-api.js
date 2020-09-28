@@ -1,9 +1,13 @@
 const express = require('express');
 const temperature = require('./classes/temperature');
+const mru = require('./classes/mru');
 const routes = express.Router();
 
 routes.get('/', (req, res) => {
-    res.end("api");
+    res.json({
+        current_version : '0.01v',
+        lastest_version : '0.01v'
+    });
 });
 routes.get('/random', (req, res) => {
 
@@ -23,29 +27,35 @@ routes.get('/nthroot', (req, res) => {
     let e = req.query.e === null || !isFinite(req.query.e) ? 2 : +req.query.e;
     let sign = b === 0 ? 0 : b > 0 ? 1 : -1;
     let answer =
+        e == 0 ? "No puedes dividir entre cero (0)" : 
         e % 2 == 0 && b < 0 ?
         "No pudes sacar raíz par de un número negativo" :
         sign * Math.pow(Math.abs(b), 1 / e);
     res.json({
         base: b,
-        exponente: e,
+        exponente: (1 / e) + ` (1 / ${e})`,
         resultado: answer
-    })
+    });
 });
 
 routes.get('/temperature', (req, res) => {
     let t = req.query.t === null || !isFinite(req.query.t) ? 0 : +req.query.t;
-    answer = temperature.calculate(t)
+    let option = req.query.option + '';
+    let answer = temperature.calculate(option,t)
     res.json({
         temperatura: answer
     });
 });
 
 routes.get('/mru', (req, res) => {
-    let t = 1;
-    let v = 1;
-    let xi = 1;
-    let x = 1;
+    let x = req.query.x;
+    let x0 = req.query.x0;
+    let v = req.query.v;
+    let t = req.query.t;
+    let d = req.query.d;
+    let option = req.query.option === null ? "error" : req.query.option;
+    let answer = mru.calculate(option,v,t,x,x0,d);
+    res.json(answer);
 });
 
 routes.get('/p', (req, res) => {

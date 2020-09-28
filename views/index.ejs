@@ -3,10 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi primer server</title>
+    <title>Api Calculadora: Temperatura-MRU-Raíz n°</title>
 </head>
 <body>
-    <%- include('partials/navigation.ejs') %>
-    <h1>Hola con EXPRESS y EJS</h1>  
+    <h1>Api Calculadora: Temperatura-MRU-Raíz n°</h1>
+
+    <h2>Raíz n°</h2>
+    <ul>
+        <li>Parametro | valor por defecto</li>
+        <li>Base (b) | 0 </li>
+        <li>Expopnente (e) | 2</li>
+    </ul>
+    <h3>ENLACE</h3>
+    <a href="http://localhost:3000/api/nthroot">http://localhost:3000/api/nthroot</a>
+    <h3>EJEMPLO</h3>
+    <a href="http://localhost:3000/api/nthroot?b=128&e=7">http://localhost:3000/api/nthroot?b=128&e=7</a>
+
+    <h2>Número aleatorio</h2>
+    <ul>
+        <li>Parametro | valor por defecto</li>
+        <li>Valor mínimo (min) | 0 </li>
+        <li>Valor máximo (max) | 1</li>
+    </ul>
+    <p>NOTA: SI EL VALOR MÁXIMO ES MENOR QUE EL VALOR MÍNIMO, SE LE ASIGNARÁ AL VALOR MÍNIMO EL VALOR MÁXIMO MENOS UNO</p>
+    <h3>ENLACE</h3>
+    <a href="http://localhost:3000/api/random">http://localhost:3000/api/random</a>
+    <h3>EJEMPLO</h3>
+    <a href="http://localhost:3000/api/random?max=100&min=1">http://localhost:3000/api/random?max=100&min=1</a>
+
+    <h2>Temperatura</h2>
+    <ul>
+        <li>Parametro | valor por defecto</li>
+        <li>Opción (option)| a2a</li>
+        <li>Temperatura (t)| 0</li>
+    </ul>
+    <p>POSIBLES OPCIONES: a2a | c2f | c2k | c2a | f2c | f2k | f2a | k2c | k2f | k2a</p>
+    <p>NOTA: LA OPCIÓN QUE CONTIENE LA LETRA "a" HACE REFERENCIA A TODOS LOS GRADOS ( °F | °C | k )</p>
+    <h3>ENLACE</h3>
+    <a href="http://localhost:3000/api/temperature">http://localhost:3000/api/temperature</a>
+    <h3>EJEMPLO</h3>
+    <a href="http://localhost:3000/api/temperature?option=a2a&t=5">http://localhost:3000/api/temperature?option=a2a&t=5</a>
+
+    <h2>Movimiento rectilineo uniforme (MRU)</h2>
+    <ul>
+        <li>Parametro | valor por defecto</li>
+        <li>Opción (option)| null</li>
+        <li>Distancia (d) | null </li>
+        <li>Posición inicial (x0) | null </li>
+        <li>Posición final (x) | null </li>
+        <li>Velocidad (v) | null </li>
+        <li>Tiempo (t) | null </li>
+    </ul>
+    <p>POSIBLES OPCIONES: </p>
+    <li>case1 : Conocer posición final x = x0 + v * t</li>
+    <li>case2 : Conocer posición inicial x0 = x - v * t</li>
+    <li>case3 : Conocer velicidad v = (x - x0) / t</li>
+    <li>case3_2 : Conocer velicidad v = d / t</li>
+    <li>case4 : Conocer tiempo t = (x - x0) / v</li>
+    <li>case4_2 : Conocer tiempo t = d / v</li>
+    <p>NOTA: LA OPCIÓN QUE CONTIENE LA LETRA "a" HACE REFERENCIA A TODOS LOS GRADOS ( °F | °C | k )</p>
+    <h3>ENLACE</h3>
+    <a href="http://localhost:3000/api/mru">http://localhost:3000/api/mru</a>
+    <h3>EJEMPLO</h3>
+    <a href="http://localhost:3000/api/mru?option=case1&x0=2&v=2&t=2">http://localhost:3000/api/mru?option=case1&x0=2&v=2&t=20.</a>
+
+    <h2>Versión de la api</h2>
+    <a href="http://localhost:3000/api">http://localhost:3000/api</a>
 </body>
 </html> 

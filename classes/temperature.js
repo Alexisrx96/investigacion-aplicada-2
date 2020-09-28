@@ -14,7 +14,7 @@ let c2f = (d)=>{return {CF: d +'°C = '+(d * 9/5 + 32)+'°F'}};
 let c2k = (d)=>{return {CK: d +'°C = '+(d + 273.15)+'K'}};
 
 let c2a = (d)=>{return {
-    CF= d +'°C = '+(d * 9/5 + 32)+'°F',
+    CF: d +'°C = '+(d * 9/5 + 32)+'°F',
     CK: d +'°C = '+(d + 273.15)+'K'
 }};
 
@@ -36,7 +36,7 @@ let k2a = (d)=>{return {
     KF: d +'K = '+(d* 9/5 - 459.67)+'°F'
 }};
 
-let calculate = (input)=>{
+let calculate = (input, t)=>{
     
     let option = input.toString().toLowerCase();
     let output;
